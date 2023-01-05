@@ -34,13 +34,13 @@ create_markdown_page(myresults)
 
 ## OPTION 2: CREATE A MAIN MARKDOWN PAGE
 # Add obsidian links to the title
-myresults['title'] = '[['+myresults['title']+']]'
+myresults['title'] = '[[' + myresults['title'] + ']]'
 
 ## OPTION 3: FILTER OUT JUST THE FACTS
-facts = ['title', 'year', 'rating','genre', 'country', 'director', 'cast']
+facts = ['title', 'year', 'rating', 'genre', 'country', 'director', 'cast']
 simpleresults = myresults[facts]
 
 ## SAVE OUT AS TEXT
-with open('movie_main.txt','w') as file_out:
-    simpleresults.to_markdown(buf=file_out)
+with open('movie_main.txt', 'w') as file_out:
+    simpleresults.to_markdown(buf =  file_out)
 

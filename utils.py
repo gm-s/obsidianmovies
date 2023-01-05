@@ -146,28 +146,28 @@ def create_markdown_page(myresults):
     # Create iterations
     for index, row in myresults.iterrows():
         # Create a file
-        mdFile = MdUtils(file_name=row['title'])
+        mdFile = MdUtils(file_name = row['title'])
 
         # Create a metadata section
         mdFile.new_line(text='---\n')
-        facts = ['year', 'rating','genre', 'country', 'director', 'cast']
+        facts = ['year', 'rating', 'genre', 'country', 'director', 'cast']
         for f in facts:
-            mdFile.new_line(text=f'{f.title()}: {row[f]}')
-        mdFile.new_line(text='Type: Review')
-        mdFile.new_line(text='')
-        mdFile.new_line(text='---\n')
+            mdFile.new_line(text = f'{f.title()}: {row[f]}')
+        mdFile.new_line(text = 'Type: Review')
+        mdFile.new_line(text = '')
+        mdFile.new_line(text = '---\n')
 
         # Create a title
-        mdFile.new_header(level=1, title=row['title'])
+        mdFile.new_header(level = 1, title = row['title'])
 
         # Create a cover
         # i could use new_inline_image but the text wraps at 20 characters
         # creating a break. Hence, I code my own image line and unwrap it
-        cover_link = '!['+ row['title'] + '](' + row['cover url'] + ')'
-        mdFile.write(text = cover_link, wrap_width=0)
+        cover_link = '![' + row['title'] + '](' + row['cover url'] + ')'
+        mdFile.write(text = cover_link, wrap_width = 0)
 
         # Create a section for the plot
-        mdFile.new_header(level=1, title="Plot")
+        mdFile.new_header(level = 1, title = "Plot")
 
         # Clean up plot text
         plot_text = row['plot']
@@ -176,7 +176,7 @@ def create_markdown_page(myresults):
         mdFile.new_line(text=plot_text, wrap_width=0)
 
         # Create my own review section
-        mdFile.new_header(level=1, title="My own thoughts")
+        mdFile.new_header(level = 1, title = "My own thoughts")
 
         # Create markdown
         mdFile.create_md_file()
